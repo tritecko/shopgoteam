@@ -12,8 +12,8 @@ Primary execution style: checkbox-driven, test-first, human-approved
 Overall status: Stage 0 in progress
 Current stage: Stage 0 - Prerequisites and Governance
 Next unchecked task: Authenticate Pencil and confirm `.pen` editing works
-Last verification: Documentation structure, duplicate removal, CLI installations, secret-pattern scan, and Git baseline commit `f0fd9f5` verified on 2026-06-09
-Active blockers: Pencil login requires product-owner credentials or OTP; Shopify CLI authorization must be completed from the product owner's Terminal because this managed session cannot write Shopify CLI preferences; GitHub publishing requires the target `owner/name` repository
+Last verification: Documentation structure, duplicate removal, CLI installations, secret-pattern scan, and GitHub `main` publication to `tritecko/shopgoteam` verified on 2026-06-09
+Active blockers: Pencil login requires product-owner credentials or OTP; Shopify CLI authorization must be completed from the product owner's Terminal because this managed session cannot write Shopify CLI preferences
 Last updated: 2026-06-09
 
 ## How To Use This Runbook
@@ -598,6 +598,7 @@ Append entries. Never rewrite or remove earlier handoffs.
   `docs/DECISIONS.md`.
 - External changes: Installed user-global packages under `/Users/tjoel/.local`:
   `@pencil.dev/cli@0.2.7`, `clerk@1.5.0`, and `@shopify/cli@4.1.0`.
+  Published the local `main` branch to `https://github.com/tritecko/shopgoteam`.
 - Verification run: Confirmed one technical-spec title, checked runbook status and
   stage checkboxes, scanned tracked source files for common secret patterns, and
   verified installed package versions and executable links.
@@ -606,6 +607,5 @@ Append entries. Never rewrite or remove earlier handoffs.
 - Blockers: Pencil authentication needs product-owner email/password or OTP.
   Shopify CLI authorization for `shopgoteam.myshopify.com` must be completed in
   the product owner's Terminal because this managed session cannot write the
-  Shopify CLI preferences directory. GitHub plugin publishing needs the target
-  repository in `owner/name` form.
+  Shopify CLI preferences directory.
 - Exact next checkbox: Authenticate Pencil and confirm `.pen` editing works.
