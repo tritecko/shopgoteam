@@ -12,8 +12,8 @@ Primary execution style: checkbox-driven, test-first, human-approved
 Overall status: Stage 0 in progress
 Current stage: Stage 0 - Prerequisites and Governance
 Next unchecked task: Authenticate Pencil and confirm `.pen` editing works
-Last verification: Documentation structure, duplicate removal, CLI installations, and secret-pattern scan verified on 2026-06-09
-Active blockers: Pencil login requires product-owner credentials or OTP; Shopify connection requires the store's `.myshopify.com` or Shopify admin URL
+Last verification: Documentation structure, duplicate removal, CLI installations, secret-pattern scan, and Git baseline commit `f0fd9f5` verified on 2026-06-09
+Active blockers: Pencil login requires product-owner credentials or OTP; Shopify connection requires the store's `.myshopify.com` or Shopify admin URL; GitHub publishing requires the target `owner/name` repository
 Last updated: 2026-06-09
 
 ## How To Use This Runbook
@@ -605,4 +605,5 @@ Append entries. Never rewrite or remove earlier handoffs.
   were blocked; production provider mutations remain disabled.
 - Blockers: Pencil authentication needs product-owner email/password or OTP.
   Shopify authentication needs the store's `.myshopify.com` or Shopify admin URL.
+  GitHub plugin publishing needs the target repository in `owner/name` form.
 - Exact next checkbox: Authenticate Pencil and confirm `.pen` editing works.
