@@ -12,7 +12,7 @@ Primary execution style: checkbox-driven, test-first, human-approved
 Overall status: Stage 0 complete; Stage 1 ready
 Current stage: Stage 1 - Pencil Design System
 Next unchecked task: Create the ShopGo Pencil design document
-Last verification: Pencil desktop MCP connectivity and Shopify store identity `ShopGoTeam` (`gid://shopify/Shop/67069280343`) verified on 2026-06-09
+Last verification: Stage 0 completion pushed to GitHub `main` at commit `8155b0f`; Pencil desktop MCP and Shopify store identity `ShopGoTeam` (`gid://shopify/Shop/67069280343`) verified on 2026-06-09
 Active blockers: None
 Last updated: 2026-06-09
 
@@ -645,5 +645,22 @@ Append entries. Never rewrite or remove earlier handoffs.
 - Decisions made: The permanent Shopify authentication domain is
   `2gatxz-fd.myshopify.com`; `shopgoteam` remains the admin handle and
   `goteam.shop` remains the customer-facing domain.
+- Blockers: None.
+- Exact next checkbox: Create the ShopGo Pencil design document.
+
+### Session Handoff - 2026-06-09 - GitHub Sync And Stage 1 Handoff
+
+- Completed: Confirmed every Stage 0 task and the Stage 0 gate are checked;
+  synchronized the verified Stage 0 runbook and decision log to GitHub; prepared
+  the workspace for a new agent session beginning Stage 1.
+- Files changed: `Build.md`.
+- External changes: GitHub `main` for `tritecko/shopgoteam` was updated through
+  commit `8155b0f`.
+- Verification run: `git status --short --branch` returned
+  `## main...origin/main` with no pending files before this handoff update;
+  `git log -3 --oneline` showed `8155b0f docs: complete Stage 0 setup` as the
+  current commit.
+- Decisions made: Stage 1 must begin in Pencil and produce the approved `.pen`
+  design source before application scaffolding or production UI implementation.
 - Blockers: None.
 - Exact next checkbox: Create the ShopGo Pencil design document.
