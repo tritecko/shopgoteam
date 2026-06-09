@@ -12,9 +12,9 @@ renders the authenticated ShopGo admin and school portals.
 **Reason:** The Shopify store already exists and should remain the commerce
 surface, while ShopGo needs a purpose-built operational and reporting portal.
 
-**Store identity:** Shopify admin handle `shopgoteam`, normalized connection
-domain `shopgoteam.myshopify.com`, and buyer-facing custom domain
-`goteam.shop`.
+**Store identity:** Shopify admin handle `shopgoteam`, permanent authentication
+domain `2gatxz-fd.myshopify.com`, Shopify shop ID
+`gid://shopify/Shop/67069280343`, and buyer-facing custom domain `goteam.shop`.
 
 ## 2026-06-09 - U.S.-First MVP
 
