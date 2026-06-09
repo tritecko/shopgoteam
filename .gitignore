@@ -11,7 +11,7 @@ test-results/
 .convex/
 .superpowers/
 *.log
+*.swp
 
 # Keep the committed environment template.
 !.env.example
-
