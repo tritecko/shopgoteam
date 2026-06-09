@@ -9,11 +9,11 @@ Primary execution style: checkbox-driven, test-first, human-approved
 
 ## Execution Status
 
-Overall status: Stage 0 in progress
-Current stage: Stage 0 - Prerequisites and Governance
-Next unchecked task: Open Pencil desktop or IDE extension and confirm `.pen` editing works
-Last verification: Documentation structure, duplicate removal, CLI installations, secret-pattern scan, and GitHub `main` publication to `tritecko/shopgoteam` verified on 2026-06-09
-Active blockers: Pencil editor MCP is not connected to a running Pencil desktop app or IDE extension; Shopify CLI authorization must be completed from the product owner's Terminal because this managed session cannot write Shopify CLI preferences
+Overall status: Stage 0 complete; Stage 1 ready
+Current stage: Stage 1 - Pencil Design System
+Next unchecked task: Create the ShopGo Pencil design document
+Last verification: Pencil desktop MCP connectivity and Shopify store identity `ShopGoTeam` (`gid://shopify/Shop/67069280343`) verified on 2026-06-09
+Active blockers: None
 Last updated: 2026-06-09
 
 ## How To Use This Runbook
@@ -264,16 +264,16 @@ Goal: establish a safe, reproducible workspace and execution contract.
 - [x] Remove the duplicated half of the technical specification.
 - [x] Install and verify Pencil CLI with `npm install -g @pencil.dev/cli`.
 - [x] Authenticate Pencil CLI.
-- [ ] Open Pencil desktop or IDE extension and confirm `.pen` editing works.
+- [x] Open Pencil desktop or IDE extension and confirm `.pen` editing works.
 - [x] Install and verify Clerk CLI with `npm install -g clerk`.
 - [x] Verify or install Shopify CLI 3.93 or newer.
 - [x] Obtain the store's `.myshopify.com` or Shopify admin URL.
-- [ ] Connect Shopify CLI to the existing store with only required scopes.
+- [x] Connect Shopify CLI to the existing store with only required scopes.
 - [x] Record provider environments and prohibit production mutations by default.
 - [x] Create `AGENTS.md`, `.env.example`, `README.md`, `.gitignore`, and
   `docs/DECISIONS.md`.
 - [x] Append a verified Stage 0 session handoff.
-- [ ] **Stage 0 Gate:** all required tools work and no secrets exist in tracked files.
+- [x] **Stage 0 Gate:** all required tools work and no secrets exist in tracked files.
 
 Evidence required:
 
@@ -612,3 +612,38 @@ Append entries. Never rewrite or remove earlier handoffs.
   preferences directory.
 - Exact next checkbox: Open Pencil desktop or IDE extension and confirm `.pen`
   editing works.
+
+### Session Handoff - 2026-06-09 - Pencil Desktop Verification
+
+- Completed: Verified the Pencil CLI stored session is active and verified the
+  Pencil desktop MCP connection by reading the active
+  `pencil-welcome-desktop.pen` editor document and schema.
+- Files changed: `Build.md`.
+- External changes: Pencil desktop is installed, running, authenticated, and
+  connected to Codex through the desktop MCP server.
+- Verification run: `pencil status` returned Active; Pencil
+  `get_editor_state(include_schema: true)` returned the active desktop editor.
+- Decisions made: Pencil desktop, not VS Code, is the required design host for
+  this workspace.
+- Blockers: Shopify CLI has no saved authorization for the permanent store
+  domain `2gatxz-fd.myshopify.com`.
+- Exact next checkbox: Connect Shopify CLI to the existing store with the
+  approved scopes.
+
+### Session Handoff - 2026-06-09 - Stage 0 Completion
+
+- Completed: Verified Pencil desktop connectivity, completed Shopify CLI OAuth
+  for the permanent store domain `2gatxz-fd.myshopify.com`, and closed the
+  Stage 0 gate.
+- Files changed: `Build.md` and `docs/DECISIONS.md`.
+- External changes: Shopify CLI Connector App authorization was approved for the
+  existing store using the required scopes.
+- Verification run: Shopify reported `Authentication succeeded`; a read-only
+  `shopify store execute --store 2gatxz-fd.myshopify.com --query
+  'query { shop { name id } }'` invocation returned `ShopGoTeam` and
+  `gid://shopify/Shop/67069280343`.
+- Decisions made: The permanent Shopify authentication domain is
+  `2gatxz-fd.myshopify.com`; `shopgoteam` remains the admin handle and
+  `goteam.shop` remains the customer-facing domain.
+- Blockers: None.
+- Exact next checkbox: Create the ShopGo Pencil design document.
