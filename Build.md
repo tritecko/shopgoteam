@@ -11,9 +11,9 @@ Primary execution style: checkbox-driven, test-first, human-approved
 
 Overall status: Stage 0 in progress
 Current stage: Stage 0 - Prerequisites and Governance
-Next unchecked task: Authenticate Pencil and confirm `.pen` editing works
+Next unchecked task: Open Pencil desktop or IDE extension and confirm `.pen` editing works
 Last verification: Documentation structure, duplicate removal, CLI installations, secret-pattern scan, and GitHub `main` publication to `tritecko/shopgoteam` verified on 2026-06-09
-Active blockers: Pencil login requires product-owner credentials or OTP; Shopify CLI authorization must be completed from the product owner's Terminal because this managed session cannot write Shopify CLI preferences
+Active blockers: Pencil editor MCP is not connected to a running Pencil desktop app or IDE extension; Shopify CLI authorization must be completed from the product owner's Terminal because this managed session cannot write Shopify CLI preferences
 Last updated: 2026-06-09
 
 ## How To Use This Runbook
@@ -263,7 +263,8 @@ Goal: establish a safe, reproducible workspace and execution contract.
 - [x] Initialize Git and establish a clean baseline.
 - [x] Remove the duplicated half of the technical specification.
 - [x] Install and verify Pencil CLI with `npm install -g @pencil.dev/cli`.
-- [ ] Authenticate Pencil and confirm `.pen` editing works.
+- [x] Authenticate Pencil CLI.
+- [ ] Open Pencil desktop or IDE extension and confirm `.pen` editing works.
 - [x] Install and verify Clerk CLI with `npm install -g clerk`.
 - [x] Verify or install Shopify CLI 3.93 or newer.
 - [x] Obtain the store's `.myshopify.com` or Shopify admin URL.
@@ -604,8 +605,10 @@ Append entries. Never rewrite or remove earlier handoffs.
   verified installed package versions and executable links.
 - Decisions made: Used a user-owned npm prefix because writes to `/usr/local`
   were blocked; production provider mutations remain disabled.
-- Blockers: Pencil authentication needs product-owner email/password or OTP.
-  Shopify CLI authorization for `shopgoteam.myshopify.com` must be completed in
-  the product owner's Terminal because this managed session cannot write the
-  Shopify CLI preferences directory.
-- Exact next checkbox: Authenticate Pencil and confirm `.pen` editing works.
+- Blockers: Pencil CLI authentication is active, but the Pencil MCP editor is
+  not connected to a running Pencil desktop app or IDE extension. Shopify CLI
+  authorization for `shopgoteam.myshopify.com` must be completed in the product
+  owner's Terminal because this managed session cannot write the Shopify CLI
+  preferences directory.
+- Exact next checkbox: Open Pencil desktop or IDE extension and confirm `.pen`
+  editing works.
