@@ -12,6 +12,10 @@ renders the authenticated ShopGo admin and school portals.
 **Reason:** The Shopify store already exists and should remain the commerce
 surface, while ShopGo needs a purpose-built operational and reporting portal.
 
+**Store identity:** Shopify admin handle `shopgoteam`, normalized connection
+domain `shopgoteam.myshopify.com`, and buyer-facing custom domain
+`goteam.shop`.
+
 ## 2026-06-09 - U.S.-First MVP
 
 **Decision:** The MVP launches in the United States with USD-only finance.
@@ -43,4 +47,3 @@ approved Shopify theme changes.
 
 **Reason:** Design approval must precede implementation and provide stable tokens,
 responsive behavior, and visual QA references.
-
