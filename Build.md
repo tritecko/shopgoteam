@@ -9,12 +9,15 @@ Primary execution style: checkbox-driven, test-first, human-approved
 
 ## Execution Status
 
-Overall status: Stage 0 complete; Stage 1 ready
-Current stage: Stage 1 - Pencil Design System
-Next unchecked task: Create the ShopGo Pencil design document
-Last verification: Stage 0 completion pushed to GitHub `main` at commit `8155b0f`; Pencil desktop MCP and Shopify store identity `ShopGoTeam` (`gid://shopify/Shop/67069280343`) verified on 2026-06-09
+Overall status: Stage 0 complete; Stage 1 complete; Stage 2 ready
+Current stage: Stage 1 - Pencil Design System (complete)
+Next unchecked task: Scaffold Next.js App Router with pnpm and strict TypeScript
+Last verification: Pencil Desktop MCP confirmed the saved canonical
+  `design/shopgo-team.pen`; all accepted desktop/mobile frames pass layout and
+  visual review; 18 semantic 2x PNG exports, the export manifest, and the
+  serialized Pencil variables were verified on 2026-06-13
 Active blockers: None
-Last updated: 2026-06-09
+Last updated: 2026-06-13
 
 ## How To Use This Runbook
 
@@ -233,7 +236,7 @@ reports.generateStatement
 |---|---|
 | Unit | Money math, slug generation, role checks, states, publish and payout gates |
 | Convex | Tenant isolation, indexes, transactional writes, ledger immutability, pagination |
-| Component | Forms, status controls, action dock, tables, empty/error/loading states |
+| Component | Forms, status controls, inline action stages, tables, empty/error/loading states |
 | Integration | Mock Shopify, Printful, Clerk, Stripe, webhook parsing and normalization |
 | E2E | Admin onboarding, product publication, order import, payout approval, school reporting |
 | Security | Auth bypass, tenant escape, upload abuse, webhook replay, payout bypass |
@@ -287,21 +290,21 @@ Evidence required:
 
 Goal: create and approve the design source before implementing production UI.
 
-- [ ] Create the ShopGo Pencil design document.
-- [ ] Define colors, typography, spacing, shadows, radii, icons, and responsive rules.
-- [ ] Design admin shell, school shell, tables, status controls, and action dock.
-- [ ] Design Admin Dashboard.
-- [ ] Design Team Detail.
-- [ ] Design Product Publish Gate.
-- [ ] Design Finance Command Center.
-- [ ] Design Payout Batch Detail.
-- [ ] Design School Dashboard.
-- [ ] Design Integration Health.
-- [ ] Audit `goteam.shop` read-only.
-- [ ] Design any proposed Shopify theme changes in Pencil.
-- [ ] Export approved assets and implementation tokens.
-- [ ] Record desktop and mobile acceptance screenshots.
-- [ ] **Stage 1 Gate:** product owner approves all primary desktop and mobile screens.
+- [x] Create the ShopGo Pencil design document.
+- [x] Define colors, typography, spacing, shadows, radii, icons, and responsive rules.
+- [x] Design admin shell, school shell, tables, status controls, and inline action stages.
+- [x] Design Admin Dashboard.
+- [x] Design Team Detail.
+- [x] Design Product Publish Gate.
+- [x] Design Finance Command Center.
+- [x] Design Payout Batch Detail.
+- [x] Design School Dashboard.
+- [x] Design Integration Health.
+- [x] Audit `shopgo.team` read-only.
+- [x] Design any proposed Shopify theme changes in Pencil.
+- [x] Export approved assets and implementation tokens.
+- [x] Record desktop and mobile acceptance screenshots.
+- [x] **Stage 1 Gate:** product owner approves all primary desktop and mobile screens.
 
 Evidence required:
 
@@ -430,7 +433,7 @@ Goal: enforce human approval and explain every publishing blocker.
 - [ ] Implement server-enforced publish, pause, and unpublish actions.
 - [ ] Add confirmations for customer-visible actions.
 - [ ] Add audit records for every high-risk action.
-- [ ] Build the Pencil-approved gate checklist and action dock.
+- [ ] Build the Pencil-approved gate checklist and inline action stage.
 - [ ] **Stage 8 Gate:** Playwright verifies the complete blocked-to-published flow.
 
 ## Stage 9 - Shopify Orders, Webhooks, And Ledger
@@ -664,3 +667,94 @@ Append entries. Never rewrite or remove earlier handoffs.
   design source before application scaffolding or production UI implementation.
 - Blockers: None.
 - Exact next checkbox: Create the ShopGo Pencil design document.
+
+### Session Handoff - 2026-06-10 - Pencil Document Activation Blocker
+
+- Completed: Re-read the required project documents, confirmed the exact Stage 1
+  starting checkbox, verified the live Pencil desktop MCP connection, and
+  inspected the supplied Kraken references. No Stage 1 checkbox was completed.
+- Files changed: `Build.md`. An invalid zero-byte
+  `design/shopgo-team.pen` attempt and empty artifact directories were removed.
+- External changes: None. No Shopify or other production provider mutation was
+  performed.
+- Verification run: Pencil `get_editor_state(include_schema: true)` returned the
+  active `pencil-welcome-desktop.pen` editor. Pencil CLI `0.2.7` authentication
+  returned Active. `pencil interactive --app desktop --in
+  design/shopgo-team.pen` connected to desktop but did not activate the
+  workspace document; both desktop-connected and headless `save()` calls
+  reported success while the output remained zero bytes.
+- Decisions made: Do not continue Stage 1 in headless Pencil. The canonical
+  workspace file must be genuinely opened and saved by Pencil desktop before
+  production design editing resumes.
+- Blockers: Create or open a new Pencil desktop document and save it as
+  `/Users/tjoel/Documents/Dev/shopgoteam-app/design/shopgo-team.pen`.
+- Exact next checkbox: Create the ShopGo Pencil design document.
+
+### Session Handoff - 2026-06-10 - Stage 1 Primary Screens And Audit Blocker
+
+- Completed: Created the canonical live Pencil design document, foundations,
+  reusable operating system, and desktop/mobile designs for Admin Dashboard,
+  Team Detail, Product Publish Gate, Finance Command Center, Payout Batch
+  Detail, School Dashboard, and Integration Health.
+- Files changed: `Build.md`,
+  `docs/design/shopify-storefront-audit.md`, and the live Pencil document at
+  `design/shopgo-team.pen`. Temporary Pencil files under `design/` predate this
+  handoff and were not used as production design sources.
+- External changes: None. Public storefront inspection and Shopify CLI attempts
+  were read-only. No Shopify, Stripe, Clerk, Convex, Printful, Manus, Vercel, or
+  GitHub production state was mutated.
+- Verification run: Pencil desktop MCP confirmed the active canonical filename.
+  Foundations and reusable components pass layout and screenshot review. All
+  seven primary desktop/mobile pairs return no problems from
+  `snapshot_layout(problemsOnly: true)` and pass screenshot review. The public
+  storefront at `https://shopgo.team` loaded as a Shopify placeholder with
+  default navigation, eight repeated placeholder products at `$19.99`, no
+  detected product imagery, and generic email/footer content.
+- Decisions made: The product owner corrected the public audit URL to
+  `https://shopgo.team`; earlier checks of `goteam.shop` and `goshop.team` are
+  discarded. Kraken Web 37 and Kraken Web 62 informed the detached navigation,
+  pale atmospheric canvas, large financial hierarchy, low-density operational
+  bands, compact controls, and right-side action docks without copying Kraken
+  branding.
+- Blockers: Shopify CLI `4.1.0` stored authentication refresh returned HTTP 401
+  and requires read-only reauthentication. Pencil Desktop must also persist the
+  current live document with `Cmd+S`; the on-disk file timestamp still reflects
+  the initial save.
+- Exact next checkbox: Audit `shopgo.team` read-only.
+
+### Session Handoff - 2026-06-13 - Stage 1 Complete And Published
+
+- Completed: Finished the canonical Pencil design system and verified all
+  Stage 1 tasks. Added the serialized Pencil token JSON, semantic export
+  manifest, 18 desktop/mobile 2x PNG exports, acceptance record, and the
+  editorial operations redesign specification. Product-owner approval was
+  recorded and the Stage 1 gate was checked.
+- Files changed: `Build.md`, `design.md`, `design/shopgo-team.pen`,
+  `design/exports/screens/`, `design/exports/tokens/shopgo-design-tokens.json`,
+  `docs/design/STAGE-1-ACCEPTANCE.md`,
+  `docs/design/shopify-storefront-audit.md`, and
+  `docs/superpowers/specs/2026-06-12-stage-1-editorial-operations-redesign.md`.
+  The obsolete local draft `design/goshopteam.pen` was not added to Git.
+- Pencil changes: Replaced heavy panel outlines with tonal surfaces, spacing,
+  and restrained soft shadows; introduced the Sora/Inter type system and
+  operational horizon; removed permanent right-side action rails; added inline
+  action stages; and added a separate School Orders and Delivery screen.
+- External changes: Pushed branch `codex/stage-1-pencil-design` and opened draft
+  pull request `https://github.com/tritecko/shopgoteam/pull/1`. The
+  `https://shopgo.team` audit remained read-only. No Shopify, Stripe, Clerk,
+  Convex, Printful, Manus, or Vercel production state was mutated.
+- Verification run: Pencil Desktop MCP confirmed
+  `design/shopgo-team.pen` as the active canonical document. All 18 accepted
+  frames returned no problems from
+  `snapshot_layout(problemsOnly: true)` and representative desktop/mobile
+  screenshots passed visual review. The manifest contains 18 entries and every
+  referenced PNG exists. Desktop exports are `2880 x 2048`; mobile exports are
+  `780 x 1688`. Both JSON files parse successfully, `git diff --check` passed,
+  and the scoped secret-pattern scan returned no findings.
+- Decisions made: Pencil remains the sole production design source. Admin users
+  retain technical Printful health and mapping details; school users receive
+  only order status, estimated delivery, tracking, exceptions, and secondary
+  provider attribution. Stage 2 is ready but was not started.
+- Blockers: None.
+- Exact next checkbox: Scaffold Next.js App Router with pnpm and strict
+  TypeScript.
