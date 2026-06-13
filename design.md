@@ -1,4 +1,4 @@
-# ShopGo.team Design Specification v0.2
+# ShopGo.team Design Specification v0.3
 
 Companion documents: `PRD.md`, `Build.md`, `ShopGo.team Technical Specification v0.3.md`  
 Primary implementation target: Next.js + Convex + Clerk + Shopify + Printful + Stripe Connect + Manus  
@@ -31,7 +31,7 @@ Borrow heavily from the supplied Kraken screenshots in these ways:
 - clean iconography
 - pill-shaped controls
 - strong spatial rhythm
-- right-side action panels
+- contextual inline action stages
 - quiet, luxurious negative space
 - cards that feel tactile without looking skeuomorphic
 - status and finance data presented with calm precision
@@ -54,7 +54,7 @@ Notable traits:
 - the sidebar has large radius and soft shadow
 - the main content breathes
 - cards are grouped in quiet horizontal bands
-- right-side transactional card floats over the main canvas
+- one contextual action stage interrupts the main canvas at the decision point
 - important actions are isolated in highly visible modules
 - content feels layered but never noisy
 
@@ -62,8 +62,8 @@ ShopGo translation:
 
 - Use a persistent left navigation rail.
 - Keep the admin interface spacious.
-- Use a floating right-side “Action Dock” on key screens.
-- Treat approval, publishing, and payout actions as elevated transactional modules.
+- Use a full-width inline “Action Stage” on high-stakes screens.
+- Place approval, publishing, and payout actions beside the state they depend on.
 - Avoid cramming dashboard widgets into a dense grid.
 
 ## 2.2 Materiality
@@ -84,7 +84,8 @@ ShopGo translation:
 - Use a soft porcelain background.
 - Cards should feel like frosted white ceramic or matte glass.
 - Shadows should be broad and low-opacity.
-- Use fine 1px borders for clarity.
+- Do not outline cards or panels. Use borders only for controls and quiet row
+  separators.
 - Use luminous gradients only for key actions and important system emphasis.
 
 ## 2.3 Typography
@@ -221,7 +222,7 @@ Do not make users hunt for operational actions.
 
 Publishing products and sending money should never be tiny table actions.
 
-Use elevated right-side action panels or modal confirmation surfaces for:
+Use elevated inline action stages or modal confirmation surfaces for:
 
 - product publishing
 - storefront launch
@@ -468,12 +469,11 @@ Do not make dashboards text-heavy. Use succinct labels and high-value numbers.
 
 ## 6.1 App Shell
 
-Use a three-zone desktop shell inspired by the Kraken screenshots.
+Use a two-zone desktop shell inspired by the Kraken screenshots.
 
 ```txt
 Floating Left Sidebar
 Central Content Canvas
-Optional Right Action Dock
 ```
 
 Desktop proportions:
@@ -481,7 +481,6 @@ Desktop proportions:
 ```txt
 Sidebar: 132–164px collapsed/compact or 220px expanded
 Central Content: fluid
-Right Action Dock: 360–420px when present
 Outer padding: 16px–28px
 Content gap: 24px–32px
 ```
@@ -577,26 +576,27 @@ or context-specific:
 Generate Payout Batch
 ```
 
-## 6.4 Right Action Dock
+## 6.4 Inline Action Stage
 
-Inspired by Kraken’s right buy/sell card.
+Translate the focus of Kraken's transaction card without copying its permanent
+right rail. The action stage is a wide contextual surface inside the main flow.
 
-This should be a premium task panel for whatever the current high-stakes workflow is.
+It should appear immediately after the state or summary that governs the
+decision.
 
 Examples:
 
-- Product Publish Dock
-- Storefront Launch Dock
-- Payout Approval Dock
-- Team Onboarding Dock
-- Integration Recovery Dock
+- Product Publish Action
+- Storefront Launch Action
+- Payout Approval Action
+- Team Onboarding Action
+- Integration Recovery Action
 
-The dock should contain:
+The stage should contain:
 
-- segmented tabs if multiple modes exist
-- large key value or current state
-- readiness checklist
-- high-confidence CTA
+- clear state or amount
+- one concise explanation
+- one high-confidence CTA
 - blocker message when unavailable
 
 Example:
@@ -669,13 +669,13 @@ When a blocker resolves:
 - check icon scales in from 0.9 to 1
 - row background fades from neutral to green-soft and back to calm white
 
-## 7.4 Right Dock Entry
+## 7.4 Action Stage Entry
 
-Right action dock should enter with:
+The inline action stage should enter with:
 
 ```txt
 opacity 0 → 1
-translateX(12px) → 0
+translateY(8px) → 0
 duration 180ms
 ```
 
@@ -889,21 +889,20 @@ Attach a rule before this product can be published.
 Fix
 ```
 
-## 9.6 Right Action Dock
+## 9.6 Inline Action Stage
 
-The dock should feel like a premium transaction card.
+The action stage should feel like a premium transaction surface without
+creating a third desktop column.
 
 Common elements:
 
 - title
-- segmented tabs where relevant
 - large state or amount
-- checklist summary
+- concise readiness summary
 - CTA
-- secondary action
 - muted explanatory copy
 
-Example product dock:
+Example product stage:
 
 ```txt
 Publish Product
@@ -915,7 +914,7 @@ Blocked
 [Resolve Blockers]
 ```
 
-Example payout dock:
+Example payout stage:
 
 ```txt
 Send Payout
@@ -950,7 +949,7 @@ Layout:
 - floating sidebar
 - top search/command bar
 - main KPI area
-- right action dock for “Launch next storefront” or “Payout readiness”
+- inline action stage for the next storefront launch or payout readiness
 - card groups below
 
 Hero KPI block:
@@ -988,7 +987,7 @@ Central Tigers — Pending Approval — 6 products blocked
 Ridgeview Hawks — Onboarding — Permission missing
 ```
 
-Right dock:
+Inline action stage:
 
 ```txt
 Launch Readiness
@@ -1013,7 +1012,7 @@ Layout:
 - public URL under title
 - action buttons below
 - chart-like or timeline-like launch progress area
-- right action dock for storefront readiness
+- inline action stage for storefront readiness
 
 Top identity:
 
@@ -1075,7 +1074,7 @@ Use `Crestwood Ravens Varsity Hoodie`.
 Visual approach:
 
 - left/center product preview and product data
-- right dock as “Publish Product”
+- inline action stage for “Publish Product”
 - publish gate checklist as the core element
 - tabs below header
 
@@ -1086,7 +1085,7 @@ Publish readiness
 7 / 10 complete
 ```
 
-Right dock:
+Inline action stage:
 
 ```txt
 Publish Product
@@ -1166,7 +1165,7 @@ Platform Share
 Pending Payouts
 ```
 
-Right dock:
+Inline action stage:
 
 ```txt
 Generate Payout Batch
@@ -1191,7 +1190,7 @@ Route:
 
 Use `Crestwood High — June 2026 Payout Batch`.
 
-Right dock should mirror a financial transaction card.
+The inline action stage should mirror a financial transaction card.
 
 Large amount:
 
@@ -1260,10 +1259,10 @@ Next payout: July 15
 Cards:
 
 ```txt
-Active Team Stores
-Pending Approvals
-Latest Statement
-Payout Setup
+Your Store
+Orders & Delivery
+Reports
+Onboarding
 ```
 
 Team cards:
@@ -1279,14 +1278,40 @@ Plain-English system explanation:
 
 ```txt
 Supporters purchase through Shopify checkout.
-Printful handles fulfillment and shipping.
 ShopGo calculates fundraiser earnings.
 Stripe Connect sends approved payouts.
 ```
 
 Avoid raw API IDs, agent logs, customer PII, or internal platform-margin complexity.
 
-## 10.7 Integration Health
+Do not expose Printful mappings, catalog IDs, webhooks, or cost-sync mechanics on
+the school dashboard. The dashboard may link to a dedicated `Orders & Delivery`
+screen.
+
+## 10.7 School Orders & Delivery
+
+Route:
+
+```txt
+/school/orders
+```
+
+This screen translates fulfillment events into school-facing outcomes:
+
+```txt
+In production
+Shipped
+Delivered
+Needs attention
+Expected date
+Tracking
+Delivery exception
+```
+
+Use the secondary attribution `Fulfillment powered by Printful`, but do not show
+provider IDs, raw provider events, variant mappings, or webhook terminology.
+
+## 10.8 Integration Health
 
 Route:
 
@@ -1316,7 +1341,7 @@ Each card:
 - compact sparkline or event pulse
 - retry/reconnect button
 
-## 10.8 Public Team Storefront
+## 10.9 Public Team Storefront
 
 Route:
 
@@ -1453,14 +1478,14 @@ Primary design target.
 Use full shell:
 
 ```txt
-floating sidebar + central canvas + right action dock
+floating sidebar + full-width central canvas
 ```
 
 ## 13.2 Tablet
 
 Collapse sidebar into icon rail.
 
-Right action dock can move below the header or become an inline card.
+The inline action stage remains in the document flow below the governing state.
 
 ## 13.3 Mobile
 
@@ -1597,9 +1622,9 @@ For UI/UX Pilot, create the prompt from this document by focusing on:
 - floating sidebar
 - pale atmospheric background
 - premium rounded cards
-- right action dock
+- contextual inline action stage
 - teal/cyan gradient CTAs
-- six priority screens
+- seven priority screens
 
 Do not give UI/UX Pilot the entire technical spec. Give it the product context, aesthetic reference, screen list, component list, and key interaction goals.
 
@@ -1611,6 +1636,7 @@ Priority mockup screens:
 4. Finance Command Center
 5. Payout Batch Detail
 6. School Dashboard
+7. School Orders & Delivery
 
 ---
 
@@ -1624,13 +1650,15 @@ Before UI is accepted:
 - [ ] Cards feel tactile and layered.
 - [ ] Teal/cyan is used as a restrained action glow.
 - [ ] Large financial numerals feel confident.
-- [ ] Right action dock appears on high-stakes screens.
+- [ ] High-stakes screens use one contextual inline action stage.
+- [ ] Cards and panels are separated by space, tone, and soft shadow, not outlines.
 - [ ] Blocked actions explain why.
 - [ ] Product publish gate is visually prominent.
 - [ ] Finance screens feel audit-safe.
 - [ ] School dashboard is simpler than admin.
 - [ ] No Stripe-as-checkout confusion appears.
-- [ ] Printful mapping state is easy to see.
+- [ ] Printful mapping state is easy to see for admins and hidden from school
+      users unless translated into an order or delivery outcome.
 - [ ] Motion is subtle and useful.
 - [ ] Empty states feel intentional.
 - [ ] No obvious AI-generated visual clutter.

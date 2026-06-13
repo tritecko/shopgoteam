@@ -1,0 +1,25 @@
+{
+  "source": "design/shopgo-team.pen",
+  "format": "png",
+  "scale": 2,
+  "screens": [
+    { "nodeId": "f0Qgmr", "name": "Admin Dashboard Desktop", "file": "admin-dashboard-desktop@2x.png" },
+    { "nodeId": "taPKO", "name": "Admin Dashboard Mobile", "file": "admin-dashboard-mobile@2x.png" },
+    { "nodeId": "onnhN", "name": "Team Detail Desktop", "file": "team-detail-desktop@2x.png" },
+    { "nodeId": "y4AdMn", "name": "Team Detail Mobile", "file": "team-detail-mobile@2x.png" },
+    { "nodeId": "snqx4", "name": "Product Publish Gate Desktop", "file": "product-publish-gate-desktop@2x.png" },
+    { "nodeId": "D3XCN", "name": "Product Publish Gate Mobile", "file": "product-publish-gate-mobile@2x.png" },
+    { "nodeId": "O6uZXK", "name": "Finance Command Center Desktop", "file": "finance-command-center-desktop@2x.png" },
+    { "nodeId": "s1ec5", "name": "Finance Command Center Mobile", "file": "finance-command-center-mobile@2x.png" },
+    { "nodeId": "c5fq6F", "name": "Payout Batch Detail Desktop", "file": "payout-batch-detail-desktop@2x.png" },
+    { "nodeId": "R3KPTC", "name": "Payout Batch Detail Mobile", "file": "payout-batch-detail-mobile@2x.png" },
+    { "nodeId": "Nw49T", "name": "School Dashboard Desktop", "file": "school-dashboard-desktop@2x.png" },
+    { "nodeId": "aeFh7", "name": "School Dashboard Mobile", "file": "school-dashboard-mobile@2x.png" },
+    { "nodeId": "l9eRm", "name": "School Orders and Delivery Desktop", "file": "school-orders-delivery-desktop@2x.png" },
+    { "nodeId": "UQpnl", "name": "School Orders and Delivery Mobile", "file": "school-orders-delivery-mobile@2x.png" },
+    { "nodeId": "eStDA", "name": "Integration Health Desktop", "file": "integration-health-desktop@2x.png" },
+    { "nodeId": "dbWma", "name": "Integration Health Mobile", "file": "integration-health-mobile@2x.png" },
+    { "nodeId": "ulh5B", "name": "Shopify Storefront Proposal Desktop", "file": "shopify-storefront-proposal-desktop@2x.png" },
+    { "nodeId": "KNuXG", "name": "Shopify Storefront Proposal Mobile", "file": "shopify-storefront-proposal-mobile@2x.png" }
+  ]
+}
