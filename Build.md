@@ -721,3 +721,40 @@ Append entries. Never rewrite or remove earlier handoffs.
   current live document with `Cmd+S`; the on-disk file timestamp still reflects
   the initial save.
 - Exact next checkbox: Audit `shopgo.team` read-only.
+
+### Session Handoff - 2026-06-13 - Stage 1 Complete And Published
+
+- Completed: Finished the canonical Pencil design system and verified all
+  Stage 1 tasks. Added the serialized Pencil token JSON, semantic export
+  manifest, 18 desktop/mobile 2x PNG exports, acceptance record, and the
+  editorial operations redesign specification. Product-owner approval was
+  recorded and the Stage 1 gate was checked.
+- Files changed: `Build.md`, `design.md`, `design/shopgo-team.pen`,
+  `design/exports/screens/`, `design/exports/tokens/shopgo-design-tokens.json`,
+  `docs/design/STAGE-1-ACCEPTANCE.md`,
+  `docs/design/shopify-storefront-audit.md`, and
+  `docs/superpowers/specs/2026-06-12-stage-1-editorial-operations-redesign.md`.
+  The obsolete local draft `design/goshopteam.pen` was not added to Git.
+- Pencil changes: Replaced heavy panel outlines with tonal surfaces, spacing,
+  and restrained soft shadows; introduced the Sora/Inter type system and
+  operational horizon; removed permanent right-side action rails; added inline
+  action stages; and added a separate School Orders and Delivery screen.
+- External changes: Pushed branch `codex/stage-1-pencil-design` and opened draft
+  pull request `https://github.com/tritecko/shopgoteam/pull/1`. The
+  `https://shopgo.team` audit remained read-only. No Shopify, Stripe, Clerk,
+  Convex, Printful, Manus, or Vercel production state was mutated.
+- Verification run: Pencil Desktop MCP confirmed
+  `design/shopgo-team.pen` as the active canonical document. All 18 accepted
+  frames returned no problems from
+  `snapshot_layout(problemsOnly: true)` and representative desktop/mobile
+  screenshots passed visual review. The manifest contains 18 entries and every
+  referenced PNG exists. Desktop exports are `2880 x 2048`; mobile exports are
+  `780 x 1688`. Both JSON files parse successfully, `git diff --check` passed,
+  and the scoped secret-pattern scan returned no findings.
+- Decisions made: Pencil remains the sole production design source. Admin users
+  retain technical Printful health and mapping details; school users receive
+  only order status, estimated delivery, tracking, exceptions, and secondary
+  provider attribution. Stage 2 is ready but was not started.
+- Blockers: None.
+- Exact next checkbox: Scaffold Next.js App Router with pnpm and strict
+  TypeScript.
